@@ -7,9 +7,6 @@ stack_name = {{cookiecutter.project_name}}
 init:
 	cd api && GOOS=linux GOARCH=amd64 GO111MODULE=on go mod init
 
-build-local:
-	GOARCH=amd64 GOOS=linux go build -gcflags='-N -l' -o ../artifacts/$(name) ./api
-
 build: clean
 	cd api && GOOS=linux GOARCH=amd64 GO111MODULE=on go build -o ../artifacts/$(name)
 

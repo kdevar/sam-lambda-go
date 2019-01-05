@@ -1,4 +1,4 @@
 {
   "project_name": "Name of the project",
-  "repo_location": "Location of repo will be used to setup initial imports e.g. github.com/kdevar"
+  "repo_location": "Location of repo e.g. github.com/kdevar"
 }
