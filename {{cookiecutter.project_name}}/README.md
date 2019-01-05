@@ -13,7 +13,9 @@ make init
 make serve
 ```
 
-## Deploy to sandbox
+You should find your application at <a href="http://127.0.0.1:3000/healthcheck">http://127.0.0.1:3000/healthcheck</a>
+
+## Deploy to aws sandbox
 
 1. Paste your aws credentials in the terminal
 2. Run command
