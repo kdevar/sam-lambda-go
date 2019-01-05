@@ -15,7 +15,7 @@ make serve
 
 ## Deploy to sandbox
 
-1. Paste you credentials in the session terminal
+1. Paste your aws credentials in the terminal
 2. Run command
 ```
 make deploy_sandbox

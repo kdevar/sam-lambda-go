@@ -1,4 +1,4 @@
-# CookieCutter template - SAM GO Lambda
+# Cookiecutter template - SAM GO Lambda
 
 ## Install golang
 
