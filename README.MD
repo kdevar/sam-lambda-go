@@ -1,6 +1,7 @@
 # Cookiecutter template - SAM GO Lambda
 
 ## Install golang
+Template creates a golang project that expects gomodules.  So you will need 1.11 incase you already have go installed
 
 <a href="https://golang.org/dl/">Official Installation guidelines</a>
 
