@@ -1,0 +1,57 @@
+{% set camel_name = cookiecutter.project_name|replace("-", " ")|title|replace(" ", "") -%}
+{% set api_name = "https://${"+ camel_name + "Api}.execute-api.${AWS::Region}.amazonaws.com/${apiGatewayStageName}"-%}
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Test project created from sam go template
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Timeout: 5
+
+Parameters:
+  apiGatewayStageName:
+    Type: "String"
+    Default: "v1"
+
+  EnvironmentType:
+    Type: String
+
+Resources:
+  
+  {{camel_name}}Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: !Ref "apiGatewayStageName"
+      EndpointConfiguration: REGIONAL
+
+  {{camel_name}}ApiDeployment:
+    Type: AWS::ApiGateway::Deployment
+    Properties:
+      RestApiId: !Ref {{camel_name}}Api
+
+  {{camel_name}}Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: artifacts/
+      FunctionName: {{cookiecutter.project_name}}
+      Tracing: Active
+      Handler: {{cookiecutter.project_name}}
+      Timeout: 10
+      Runtime: go1.x
+      Events:
+        CatchAll:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+            RestApiId: !Ref {{camel_name}}Api
+      Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+        Variables:
+          Param1: Paramvalue
+
+Outputs:
+    ApiUrl:
+      Description: "The API Gateway URL"
+      Value: !Sub {{api_name}}
+      Export:
+        Name: {{camel_name}}ApiUrl
