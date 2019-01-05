@@ -5,8 +5,8 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/awslabs/aws-lambda-go-api-proxy/gin"
 	"github.com/gin-gonic/gin"
-	config2 "github.com/basketsavings/{{cookiecutter.project_name}}/api/config"
-	"github.com/basketsavings/{{cookiecutter.project_name}}/api/errors"
+	config2 "{{cookiecutter.repo_location}}/{{cookiecutter.project_name}}/api/config"
+	"{{cookiecutter.repo_location}}/{{cookiecutter.project_name}}/api/errors"
 	"log"
 )
 

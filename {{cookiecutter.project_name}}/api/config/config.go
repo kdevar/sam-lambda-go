@@ -3,7 +3,7 @@ package config
 import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/basketsavings/{{cookiecutter.project_name}}/api/errors"
+	"{{cookiecutter.repo_location}}/{{cookiecutter.project_name}}/api/errors"
 	"log"
 )
 
